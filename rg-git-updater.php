@@ -74,7 +74,7 @@ if (!class_exists("RgGitUpdater")) {
           $transient->response[$plugin_path] = (object) [
             "slug" => plugin_basename($plugin_path),
             "new_version" => $new_version,
-            "package" => $release->zipball_url,
+            "package" => $release->tarball_url, // Bytt från zipball_url till tarball_url
             "url" => $release->html_url,
           ];
         }
@@ -132,7 +132,7 @@ if (!class_exists("RgGitUpdater")) {
             "description" => $plugin_info["Description"],
             "changelog" => isset($release->body) ? nl2br($release->body) : "",
           ],
-          "download_link" => $release->zipball_url,
+          "download_link" => $release->tarball_url, // Bytt från zipball_url till tarball_url
         ];
       }
 
